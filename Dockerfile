@@ -12,7 +12,7 @@ RUN yum install -y openssl mod_ssl
 EXPOSE 443
 
 # tag:PHP5.3.3
-#RUN yum install -y php php-mbstring php-mysq
+RUN yum install -y php php-mbstring php-mysq
 
 #CMD /usr/sbin/httpd -DFOREGROUND
 ENTRYPOINT /etc/init.d/httpd start && /bin/bash
