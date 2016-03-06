@@ -8,8 +8,8 @@ RUN yum install -y httpd
 EXPOSE 80 
 
 # tag:SSL
-#RUN yum install -y openssl mod_ssl
-#EXPOSE 443
+RUN yum install -y openssl mod_ssl
+EXPOSE 443
 
 # tag:PHP5.3.3
 #RUN yum install -y php php-mbstring php-mysq
