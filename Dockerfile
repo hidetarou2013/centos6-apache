@@ -14,5 +14,9 @@ EXPOSE 443
 # tag:PHP5.3.3
 RUN yum install -y php php-mbstring php-mysq
 
+# tag:PHP5.3.3.1
+RUN yum install -y php php-mbstring php-mysql php-devel php-mcrypt 
+
+
 #CMD /usr/sbin/httpd -DFOREGROUND
 ENTRYPOINT /etc/init.d/httpd start && /bin/bash
