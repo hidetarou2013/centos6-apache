@@ -23,8 +23,8 @@ RUN mkdir /var/lib/svnrepos/
 ADD create_svn_repo.sh /tmp/
 RUN chmod 755 /tmp/create_svn_repo.sh
 RUN exec sh /tmp/create_svn_repo.sh tmp1
-ADD subversion.conf /etc/httpd/conf.d/
-ADD svnrepos_pass /etc/httpd/conf/
+ADD "$PWD"/subversion.conf /etc/httpd/conf.d/
+ADD "$PWD"/svnrepos_pass /etc/httpd/conf/
 
 #CMD /usr/sbin/httpd -DFOREGROUND
 ENTRYPOINT /etc/init.d/httpd start && /etc/rc.d/init.d/svnserve restart && /bin/bash
