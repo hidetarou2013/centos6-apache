@@ -18,7 +18,7 @@ RUN yum install -y php php-mbstring php-mysq
 RUN yum install -y php php-mbstring php-mysql php-devel php-mcrypt 
 
 # tag:SVN1.6.11
-RUN yum install -y subversion
+RUN yum install -y subversion mod_dav_svn
 RUN mkdir /var/lib/svnrepos/
 ADD "$PWD"/create_svn_repo.sh /tmp/create_svn_repo.sh
 RUN chmod 755 /tmp/create_svn_repo.sh
