@@ -28,6 +28,7 @@ ADD "$PWD"/svnrepos_pass /etc/httpd/conf/svnrepos_pass
 RUN ls -la /etc/httpd/conf/
 RUN ls -la /etc/httpd/conf.d/
 RUN ls -la /tmp/
+RUN rpm -qa | grep mod_dav_svn
 
 #CMD /usr/sbin/httpd -DFOREGROUND
 ENTRYPOINT /etc/init.d/httpd start && /etc/rc.d/init.d/svnserve restart && /bin/bash
