@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# [ec2-user@ip-172-31-40-102 shell]$ ./create_svn_repo.sh kenshuu201505_team_a
+# [ec2-user@ip-172-31-40-102 shell]$ ./create_svn_repo.sh repo_name
 #
 
 target_dir=/var/lib/svnrepos/
@@ -35,5 +35,8 @@ htpasswd -bm /etc/httpd/conf/$1 ken17 ken17
 htpasswd -bm /etc/httpd/conf/$1 ken18 ken18
 
 ls -l $target_dir
+
+sed -i -e 's/tmp1/$1/g' /etc/httpd/conf.d/subversion.conf
+cat -n /etc/httpd/conf.d/subversion.conf | grep $1
 
 exit 0
