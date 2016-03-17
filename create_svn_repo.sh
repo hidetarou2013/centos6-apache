@@ -4,6 +4,12 @@
 # [ec2-user@ip-172-31-40-102 shell]$ ./create_svn_repo.sh repo_name
 #
 
+if [ -d /var/lib/svnrepos ]; then
+  echo "/var/lib/svnrepos/ is exist."
+else
+  exec mkdir /var/lib/svnrepos/
+fi
+
 target_dir=/var/lib/svnrepos/
 cd /var/lib/svnrepos/
 svnadmin create $1
