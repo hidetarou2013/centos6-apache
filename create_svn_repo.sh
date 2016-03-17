@@ -36,7 +36,7 @@ htpasswd -bm /etc/httpd/conf/$1 ken18 ken18
 
 ls -l $target_dir
 
-sed -i -e 's/tmp1/"$1"/g' /etc/httpd/conf.d/subversion.conf
-cat -n /etc/httpd/conf.d/subversion.conf | grep $1
+#sed -i -e 's/tmp1/"$1"/g' /etc/httpd/conf.d/subversion.conf
+#cat -n /etc/httpd/conf.d/subversion.conf | grep $1
 
 exit 0

@@ -27,6 +27,8 @@ ADD "$PWD"/create_svn_repo.sh /tmp/create_svn_repo.sh
 RUN chmod 755 /tmp/create_svn_repo.sh
 ENV TARGET_REPO repo1
 RUN exec sh /tmp/create_svn_repo.sh $TARGET_REPO
+RUN sed -i -e 's/tmp1/$TARGET_REPO/g' /etc/httpd/conf.d/subversion.conf
+RUN cat -n /etc/httpd/conf.d/subversion.conf | grep $TARGET_REPO
 
 RUN ls -la /etc/httpd/conf/
 RUN ls -la /etc/httpd/conf.d/
