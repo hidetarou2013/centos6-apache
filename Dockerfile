@@ -39,8 +39,12 @@ RUN rpm -qa | grep mod_dav_svn
 ADD "$PWD"/httpd-proxy.conf /etc/httpd/conf.d/httpd-proxy.conf
 
 # tag:debian-tomcat8_jaxrs-sample
+#RUN sed -i -e 's/app/jaxrs-sample/g' /etc/httpd/conf.d/httpd-proxy.conf
+#RUN sed -i -e 's/tomcat/debian-tomcat8/g' /etc/httpd/conf.d/httpd-proxy.conf
+
+# tag:ubuntu-tomcat8_jaxrs-sample
 RUN sed -i -e 's/app/jaxrs-sample/g' /etc/httpd/conf.d/httpd-proxy.conf
-RUN sed -i -e 's/tomcat/debian-tomcat8/g' /etc/httpd/conf.d/httpd-proxy.conf
+RUN sed -i -e 's/tomcat/ubuntu-tomcat8/g' /etc/httpd/conf.d/httpd-proxy.conf
 
 #CMD /usr/sbin/httpd -DFOREGROUND
 ENTRYPOINT /etc/init.d/httpd start && /etc/rc.d/init.d/svnserve restart && /bin/bash
